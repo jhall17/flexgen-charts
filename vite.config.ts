@@ -29,7 +29,7 @@ export default defineConfig({
   build: {
     lib: {
       name: "@flexgen/charts",
-      entry: "src/index.ts",
+      entry: "dist/index.js",
       fileName: "index",
     },
   },
