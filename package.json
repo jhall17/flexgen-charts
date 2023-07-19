@@ -2,6 +2,7 @@
   "name": "@flexgen/charts",
   "private": true,
   "version": "0.0.0",
+  "exports": "./dist/main.js",
   "type": "module",
   "scripts": {
     "dev": "vite",

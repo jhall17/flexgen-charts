@@ -17,7 +17,6 @@ import { ILogarithmicAxisOptions } from "scichart/Charting/Visuals/Axis/Logarith
 import { INumericAxisOptions } from "scichart/Charting/Visuals/Axis/NumericAxis";
 import { SciChartSurface } from "scichart/Charting/Visuals/SciChartSurface";
 import { TSciChart } from "scichart/types/TSciChart";
-import { DrawFunction } from ".";
 
 export type AxisOptions =
   | INumericAxisOptions

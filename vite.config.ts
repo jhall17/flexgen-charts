@@ -26,4 +26,11 @@ export default defineConfig({
       allow: [".."],
     },
   },
+  build: {
+    lib: {
+      name: "@flexgen/charts",
+      entry: "src/index.ts",
+      fileName: "main",
+    },
+  },
 });
