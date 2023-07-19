@@ -1,6 +1,7 @@
 import { SciChartSurface, TSciChart } from "scichart";
-import { DrawFunction, IBob } from "./bob.interface";
+import { IBob } from "./bob.interface";
 import { SciChartCtx } from "./bob2d.types";
+import { DrawFunction } from "./bob2d.types";
 
 // implementation of Bob the (chart) Builder
 class Bob2d implements IBob {

@@ -1,4 +1,3 @@
-import { DrawFunction } from "./bob.interface";
 import {
   AnnotationType,
   AxisDirection,
@@ -10,6 +9,7 @@ import {
   AnnotationOptions,
   AxisOptions,
   ZoomPanModifierOptions,
+  DrawFunction,
   withContextCb,
 } from "./bob2d.types";
 import {

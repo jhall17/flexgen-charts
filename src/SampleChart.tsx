@@ -21,7 +21,6 @@ import {
   SciChartSurface,
   TSciChart,
   EllipsePointMarker,
-  DefaultPaletteProvider,
 } from "scichart";
 import { useEffect, useRef, useState } from "react";
 import { uid } from "uid";

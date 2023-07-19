@@ -48,3 +48,10 @@ export type SciChartCtx = {
 };
 
 export type withContextCb = (ctx: SciChartCtx) => DrawFunction[];
+
+export type DrawFunction = (
+  surface: SciChartSurface,
+  wasmContext: TSciChart
+) => { surface: SciChartSurface; wasmContext: TSciChart };
+
+export type BuildFunction = (...x: any[]) => DrawFunction;
