@@ -1,6 +1,6 @@
 {
   "name": "@flexgen/charts",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "exports": "./dist/main.js",
   "type": "module",
   "files": [
