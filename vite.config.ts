@@ -30,7 +30,7 @@ export default defineConfig({
     lib: {
       name: "@flexgen/charts",
       entry: "src/index.ts",
-      fileName: "main",
+      fileName: "index",
     },
   },
 });

@@ -1,11 +1,18 @@
 {
   "name": "@flexgen/charts",
-  "version": "0.0.1",
-  "exports": "./dist/main.js",
+  "version": "0.0.2",
   "type": "module",
   "files": [
     "dist"
   ],
+  "main": "dist/index.js",
+  "module": "dist/index.umd.cjs",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
