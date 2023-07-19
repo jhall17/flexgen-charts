@@ -1,5 +1,6 @@
 "use client";
-import BaseChart, {
+import {
+  BaseChart,
   Bob2d,
   AxisDirection,
   AxisType,
