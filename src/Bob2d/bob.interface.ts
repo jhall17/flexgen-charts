@@ -8,17 +8,11 @@ export type DrawFunction = (
   wasmContext: TSciChart
 ) => { surface: SciChartSurface; wasmContext: TSciChart };
 
-export type BuildFunction<T> = (...x: any[]) => IBob<T>;
+export type BuildFunction = (...x: any[]) => DrawFunction;
 
 // interface for Bob the (chart) Builder
-export interface IBob<T> {
+export interface IBob {
   build: () => DrawFunction;
-  addAxis: BuildFunction<T>;
-  addLine: BuildFunction<T>;
-  addAnnotation: BuildFunction<T>;
-  addZoomPanModifier: BuildFunction<T>;
-  addRolloverModifier: BuildFunction<T>;
-  addCursorModifier: BuildFunction<T>;
-  addLegendModifier: BuildFunction<T>;
-  addOverview: BuildFunction<T>;
+  bind: (...fns: DrawFunction[]) => IBob;
+  update: () => IBob;
 }

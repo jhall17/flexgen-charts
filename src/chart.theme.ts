@@ -30,8 +30,8 @@ export function createCustomTheme(
     // downBodyBrush: "white",
     // downWickColor: "white",
     fillPalette: [
-      theme.fgd.other.dischargeable_power,
       theme.fgd.other.chargeable_energy,
+      theme.fgd.other.dischargeable_power,
     ],
     // gridBackgroundBrush: "#EEEEEE",
     // gridBorderBrush: "#EEEEEE",

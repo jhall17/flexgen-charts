@@ -17,8 +17,7 @@ import { ILogarithmicAxisOptions } from "scichart/Charting/Visuals/Axis/Logarith
 import { INumericAxisOptions } from "scichart/Charting/Visuals/Axis/NumericAxis";
 import { SciChartSurface } from "scichart/Charting/Visuals/SciChartSurface";
 import { TSciChart } from "scichart/types/TSciChart";
-import { BuildFunction, DrawFunction } from ".";
-import { Bob2d } from "..";
+import { DrawFunction } from ".";
 
 export type AxisOptions =
   | INumericAxisOptions
@@ -48,4 +47,4 @@ export type SciChartCtx = {
   wasmContext: TSciChart;
 };
 
-export type withContextCb = (bob: Bob2d, ctx: SciChartCtx) => Bob2d;
+export type withContextCb = (ctx: SciChartCtx) => DrawFunction[];

@@ -5,6 +5,13 @@ import BaseChart, {
   AxisType,
   DrawFunction,
   ZoomPanModifierType,
+  addAxis,
+  addLine,
+  withContext,
+  addZoomPanModifier,
+  addRolloverModifier,
+  addLegendModifier,
+  addOverview,
 } from "./";
 import {
   AUTO_COLOR,
@@ -14,6 +21,7 @@ import {
   SciChartSurface,
   TSciChart,
   EllipsePointMarker,
+  DefaultPaletteProvider,
 } from "scichart";
 import { useEffect, useRef, useState } from "react";
 import { uid } from "uid";
@@ -49,34 +57,41 @@ const SampleChart = () => {
   );
 
   useEffect(() => {
-    const newBob = Bob2d.new()
-      .addAxis(AxisDirection.X, AxisType.Numeric, {
+    const newBob = Bob2d.new().bind(
+      addAxis(AxisDirection.X, AxisType.Numeric, {
         visibleRange: new NumberRange(0, 10),
-        visibleRangeLimit: new NumberRange(0, 10),
+        visibleRangeLimit: new NumberRange(-2, 12),
         axisTitle: "X",
         drawMajorGridLines: false,
-      })
-      .addAxis(AxisDirection.Y, AxisType.Numeric, {
-        visibleRangeLimit: new NumberRange(0, 10),
+      }),
+      addAxis(AxisDirection.Y, AxisType.Numeric, {
+        visibleRangeLimit: new NumberRange(-2, 12),
         visibleRange: new NumberRange(0, 10),
-      })
-      .withContext((bob, { wasmContext }) =>
-        bob.addLine(dataSeries, {
-          stroke: AUTO_COLOR,
-          strokeThickness: 4,
-          pointMarker: new EllipsePointMarker(wasmContext),
-        })
-      )
-      .addZoomPanModifier(ZoomPanModifierType.MouseWheelZoomPan)
-      .addZoomPanModifier(ZoomPanModifierType.ZoomPan)
-      .addRolloverModifier()
-      .addLegendModifier({
+      }),
+      withContext(({ wasmContext }) => [
+        ...dataSeries.map((individualSeries) =>
+          addLine(individualSeries, {
+            stroke: AUTO_COLOR,
+            strokeThickness: 4,
+            pointMarker: new EllipsePointMarker(wasmContext, {
+              fill: AUTO_COLOR,
+              height: 10,
+              width: 10,
+            }),
+          })
+        ),
+      ]),
+      addZoomPanModifier(ZoomPanModifierType.MouseWheelZoomPan),
+      addZoomPanModifier(ZoomPanModifierType.ZoomPan),
+      addRolloverModifier(),
+      addLegendModifier({
         showCheckboxes: true,
         showSeriesMarkers: true,
         showLegend: true,
         placement: ELegendPlacement.TopRight,
-      })
-      .addOverview(overviewRef.current!);
+      }),
+      addOverview(overviewRef.current!)
+    );
 
     const firstDraw = newBob.build();
 
